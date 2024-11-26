@@ -8,7 +8,7 @@ type Props = {
 export default function NewsList({ news }: Props) {
   return (
     <ul className="news-list">
-      {news.map((newsItem: any) => {
+      {news?.map((newsItem: any) => {
         return (
           <li key={newsItem.id}>
             <Link href={`/news/${newsItem.slug}`}>

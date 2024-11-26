@@ -1,18 +1,16 @@
 import React from "react";
-import { DUMMY_NEWS } from "@/dummy-news";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { getNewsItem } from "@/lib/news";
 
 type Props = {
   params: any;
 };
 
-export default function NewsDetailPage({ params }: Props) {
+export default async function NewsDetailPage({ params }: Props) {
   const newsId = params.slug;
 
-  const newsItem = DUMMY_NEWS.find(
-    (arrNewsItem) => arrNewsItem.slug === newsId
-  );
+  const newsItem = (await getNewsItem(newsId)) as any;
 
   if (!newsItem) {
     notFound();

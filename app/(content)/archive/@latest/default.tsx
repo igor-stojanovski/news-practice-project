@@ -4,8 +4,8 @@ import React from "react";
 
 type Props = {};
 
-export default function LatestPage({}: Props) {
-  const latestNews = getLatestNews();
+export default async function LatestPage({}: Props) {
+  const latestNews = await getLatestNews();
   return (
     <>
       <h2>Latest News</h2>
